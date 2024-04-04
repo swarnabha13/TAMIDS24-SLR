@@ -29,11 +29,7 @@ def home_page():
              """)
     st.markdown("""
                 <p style='text-align: justify;'>
-            In the competitive world of academia and research, it's important
-            to be aware of the peers and stay on top of things. The aim is to
-            look at bibliometric data, analyze the connections between
-            different research papers and departments to maximize the impact
-            of research.
+            Will the sea level rise in the future? If so, by how much?
              </p>
                 """, unsafe_allow_html=True)
 
