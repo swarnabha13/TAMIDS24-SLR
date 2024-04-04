@@ -535,24 +535,24 @@ def authors():
     col1, col2, col3 = st.columns((0.75,0.1,2))
 
     # Setting the image -
-    image = Image.open('Images/tushar.png')
+    image = Image.open('Images/Hailiang_2023_CS.jpg')
 
     # Setting the image width -
     col1.write("")
     col1.image(image, use_column_width=True)
 
-    # Ritesh Singh Suhag -
-    col3.write("## Tushar Pandey")
+    # Hailiang Hu -
+    col3.write("## Hailiang Hu")
 
     # About section -
     col3.write("""
-               Research Area: Quantum Topology
+               Research Area: Placement Optimization on FPGAs, Machine Learning in EDA
 
-               * **University:** Texas A&M University (Department of Mathematics)
-               * **Degree:** PhD Student (2024)
-               * **Email:** tusharp@tamu.edu
-               * **LinkedIn:** [linkedin.com/in/tushar-pandey1612/](https://www.linkedin.com/in/tushar-pandey1612/)
-               * **Github:** [github.com/pandey-tushar](https://github.com/pandey-tushar)
+               * **Department:** Electrical and Computer Engineering
+               * **Degree:** PhD Student 
+               * **Email:** hailiang@tamu.edu
+               * **LinkedIn:** [linkedin.com/in/hailiang-hu-282b90ba/](https://www.linkedin.com/in/hailiang-hu-282b90ba/)
+               * **Website:** [hailiangh.github.io/](https://hailiangh.github.io/)
                """)
     st.write("")
 
@@ -560,7 +560,7 @@ def authors():
     col1, col2, col3 = st.columns((0.75,0.1,2))
 
     # Setting the image -
-    image = Image.open('Images/sambandh.png')
+    image = Image.open('Images/cristhian.jpg')
 
     # Setting the image width -
     col1.write("")
@@ -568,17 +568,16 @@ def authors():
     col1.image(image, use_column_width=True)
 
     # Ritesh Singh Suhag -
-    col3.write("## Sambandh Dhal")
+    col3.write("## Cristhian Roman Vicharra")
 
     # About section -
     col3.write("""
-               Research Area: Error Estimation and Machine Learning.
+               Research Area: Machine learning, quantum computing and molecular modelling.
 
-               * **University:** Texas A&M University (Department of Electrical and Computer Engineering)
-               * **Degree:** PhD Student (Computer Engineering)
-               * **Email:** sambandh@tamu.edu
-               * **LinkedIn:** [linkedin.com/in/sambandh-dhal9163/](https://www.linkedin.com/in/sambandh-dhal9163/)
-               * **Github:** [github.com/Sambandh](https://github.com/Sambandh)
+               * **Department:** Electrical and Computer Engineering
+               * **Degree:** PhD Student 
+               * **Email:** cristhianroman@tamu.edu
+               * **LinkedIn:** [www.linkedin.com/in/cristhianromanv/](https://www.linkedin.com/in/cristhianromanv/)
                """)
     st.write("")
 
@@ -586,7 +585,7 @@ def authors():
     col1, col2, col3 = st.columns((0.75,0.1,2))
 
     # Setting the image -
-    image = Image.open('Images/Abhijeet.png')
+    image = Image.open('Images/souryendu.jpg')
 
     # Setting the image width -
     col1.write("")
@@ -594,24 +593,23 @@ def authors():
     col1.image(image, use_column_width=True)
 
     # Abhijit Mahapatra -
-    col3.write("## Abhijit Mahapatra")
+    col3.write("## Souryendu Das")
 
     # About section -
     col3.write("""
-               Research Area: Data Science
+               Research Area: Computer Networking
 
-               * **University:** Texas A&M University (Department of Computer Engineering)
-               * **Degree:** Masters Student (Computer Engineering)
-               * **Email:** mahapatraabhijit.9@tamu.edu
-               * **LinkedIn:** [linkedin.com/in/abhijit-mahapatra807/](https://www.linkedin.com/in/abhijit-mahapatra807/)
-               * **Github:** [github.com/livingMabhijit](https://github.com/livingMabhijit)
+               * **Department:** Department of Electrical and Computer Engineering
+               * **Degree:** PhD student
+               * **Email:** bubunda@tamu.edu 
+               * **LinkedIn:** [linkedin.com/in/souryendu-das/](https://www.linkedin.com/in/souryendu-das/)
                """)
     st.write("")
     # Dividing screen into 2 parts -
     col1, col2, col3 = st.columns((0.75,0.1,2))
 
     # Setting the image -
-    image = Image.open('Images/swarnabha.png')
+    image = Image.open('Images/swarnabha.jpg')
 
     # Setting the image width -
     col1.write("")
@@ -625,37 +623,11 @@ def authors():
     col3.write("""
                Research Area: Modular Robotics and Virtual Reality.
 
-               * **University:** Texas A&M University (Department of Electrical and Computer Engineering)
-               * **Degree:** PhD Student (Computer Engineering)
+               * **Department:** Department of Electrical and Computer Engineering
+               * **Degree:** PhD Student 
                * **Email:** swarnabha7@tamu.edu
-               * **LinkedIn:** [linkedin.com/in/swarnabha-roy-53a588a4/](https://www.linkedin.com/in/swarnabha-roy-53a588a4/)
+               * **LinkedIn:** [linkedin.com/in/swarnabha7/]https://www.linkedin.com/in/swarnabha7/)
                * **Github:** [github.com/swarnabha13](https://github.com/swarnabha13)
-               """)
-    st.write("")
-
-    # Dividing screen into 2 parts -
-    col1, col2, col3 = st.columns((0.75,0.1,2))
-
-    # Setting the image -
-    image = Image.open('Images/dd.png')
-
-    # Setting the image width -
-    col1.write("")
-    col1.write("")
-    col1.image(image, use_column_width=True)
-
-    # Ritesh Singh Suhag -
-    col3.write("## Rohit Dube")
-
-    # About section -
-    col3.write("""
-               Research Area: Operations Research
-
-               * **University:** Texas A&M University (Department of Industrial Engineering)
-               * **Degree:** PhD Student (Industrial Engineering)
-               * **Email:** dube.rohit@tamu.edu
-               * **LinkedIn:** [linkedin.com/in/rohitdube922/](https://www.linkedin.com/in/rohitdube922/)
-               * **Github:** [github.com/Rohitd922](https://github.com/Rohitd922)
                """)
     st.write("")
 
