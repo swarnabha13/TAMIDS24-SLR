@@ -18,9 +18,8 @@ def home_page():
     # Desription -
     st.markdown("""
                 <p style='text-align: justify;'>
-                The 2021 TAMIDS Data Science Competition is about finding the
-                impact of research and an approach to help increase the
-                influence through selecting relevant subfields/areas.
+                The 2024 TAMIDS Data Science Competition is about finding the
+                impact of Sea Level Rise.
                 </p>
                 """, unsafe_allow_html=True)
 
@@ -673,7 +672,7 @@ st.set_page_config(layout='wide', page_title = 'Bibliometric Research', page_ico
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Setting the image - 
-image = Image.open('Images/image2.png')
+image = Image.open('Images/MainPage.png')
 
 # Setting the image width -
 st.image(image, use_column_width=True)
