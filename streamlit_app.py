@@ -13,7 +13,7 @@ import webbrowser
 
 def home_page():
     # Setting the title -
-    #st.title("TAMIDS Data Science Competition 2022")
+    #st.title("TAMIDS Data Science Competition 2024")
 
     # Desription -
     st.markdown("""
