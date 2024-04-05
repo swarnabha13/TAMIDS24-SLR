@@ -50,9 +50,9 @@ def home_page():
              </p>
                 """, unsafe_allow_html=True)
     
-    image = Image.open('Images\Picture1.png')
+    #image = Image.open('Images\Picture1.png')
     #Setting the image width
-    st.image(image, use_column_width = True)
+    #st.image(image, use_column_width = True)
 
     # Data Collection and Pre-processing -
     st.write("""
