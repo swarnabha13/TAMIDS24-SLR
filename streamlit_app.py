@@ -29,7 +29,22 @@ def home_page():
              """)
     st.markdown("""
                 <p style='text-align: justify;'>
-            Will the sea level rise in the future? If so, by how much?
+            Will the sea level rise in the future? If so, by how much?</p>
+                
+            <p style='text-align: justify;'>Rising sea levels due to climate change pose a severe threat to coastal regions around the United States and globally. As global temperatures increase, glaciers and ice sheets are melting at an accelerated rate, adding vast amounts of water to the world's oceans. This melting of land-based ice is the primary driver of sea level rise, along with the thermal expansion of warming ocean waters.</p>
+            <p style='text-align: justify;'>The cumulative loss of mass from glaciers worldwide is projected to continue increasing over time, as shown by the equation:</p>
+            <p>
+                Cumulative Loss of Mass (Gigatonnes) = 
+                <span style="white-space: nowrap;">-8.73y<sup>2</sup> + 3.5×10<sup>4</sup>y - 3.46×10<sup>7</sup></span>
+            </p>
+            <p style='text-align: justify;'>    Where y is the number of years since 2000. This ongoing ice melt will cause sea levels to rise at varying rates in different U.S. coastal regions based on factors like ocean circulation patterns, land movement, and proximity to melting glaciers.
+                Projected sea level rise equations for 2024 estimate:
+                North Atlantic: 6.38 meter rise
+                North Pacific: 7.40 meter rise
+                Gulf of Mexico: 9.78 meter rise
+                The impacts of this sea level rise include permanent inundation of low-lying areas, more frequent coastal flooding from high tides and storm surges, erosion of beaches and cliffs, saltwater intrusion into freshwater supplies, and damage to critical infrastructure like roads, utilities, and residential/commercial property.
+                Hundreds of millions of people living in U.S. coastal cities and communities face displacement, along with profound economic disruptions across sectors like tourism, agriculture, fishing, and trade. Coastal ecosystems like wetlands and estuaries that provide storm protection and marine habitats are also at high risk.
+                Mitigating the current and future impacts of sea level rise requires a multi-faceted approach of reducing global greenhouse gas emissions to limit temperature rise, implementing coastal adaptation measures, developing policies for managed retreat from high-risk areas, and investing in resilient infrastructure to protect coastal communities and economies.
              </p>
                 """, unsafe_allow_html=True)
 
