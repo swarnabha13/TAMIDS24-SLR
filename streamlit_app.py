@@ -104,24 +104,42 @@ def home_page():
     st.write("")
     st.info("Please navigate using the select box in the sidebar on the left.")
     
-def get_formula():
-    #Getting the graph
-    HtmlFile = open(f"formula.html",'r',encoding = 'utf-8')
-    source_code_2 = HtmlFile.read()
-    components.html(source_code_2,height = 200)
 
-
-def get_topics():
-    #Getting the graph
-    HtmlFile = open(f"Publication_data/topics.html",'r',encoding = 'utf-8')
-    source_code_2 = HtmlFile.read()
-    components.html(source_code_2,height = 500)
-    
 def get_dept_collab_graph(dept_1):
     #Getting the graph
     HtmlFile = open(f"Images/Dept_collab/dept_collab_{dept_1}.html",'r',encoding = 'utf-8')
     source_code_2 = HtmlFile.read()
     components.html(source_code_2,height = 500)
+
+
+#_______________________US regional Sea level Trend_______________________
+def us_sea_level_trend():
+    # Setting the title
+    st.title('US Regional Sea Level Trend')
+
+    # Description
+    st.markdown("""
+                <p style='text-align: justify;'>
+                While global average sea level rise projections provide an overall estimate, the actual impacts on specific U.S. coastal regions will vary substantially based on regional factors. Along the densely populated U.S. East and Gulf Coasts, sea levels are projected to rise 10-14 inches (0.25-0.36 meters) on average over the next 30 years, and as much as 4.9 feet (1.5 meters) by 2100 under higher emissions scenarios. This puts millions of residents and critical infrastructure at increasing risk of flooding from high tides, storm surges, and permanent inundation of low-lying areas
+                </p>""",unsafe_allow_html = True)
+    st.write("")
+
+    # Getting the initial image
+    col1, col2, col3 = st.columns((1,2.5,1))
+
+    # Getting the graph
+    HtmlFile = open("Images/Swarnabha/3d_plot_with_regions.html", 'r', encoding='utf-8')
+    source_code_2 = HtmlFile.read()
+    components.html(source_code_2, height=700)
+
+    st.markdown("""
+                <p style='text-align: justify;'>
+                To better capture the periodicity and the overall trend of the ADT series, a customized mathematical model is proposed to fit the historical ADT data. In the model, the linearity and the periodicity are represented by the linear and sinusoidal part, respectively.
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
+
+
 
 #------------------ Publication Analysis----------------
 def publication_analysis():
@@ -663,7 +681,7 @@ st.image(image, use_column_width=True)
 # Sidebar navigation for users -
 st.sidebar.header('Navigation tab')
 navigation_tab = st.sidebar.selectbox('Choose a tab', ('Home-Page',
- 'Publication Analysis','Collaboration potential', 'Grant Analysis',
+ 'US regional Sea level Trend','Collaboration potential', 'Grant Analysis',
  'Impact score', 'About the Authors'))
 
 # Displaying pages according to the selection -
@@ -673,8 +691,8 @@ if navigation_tab == 'Home-Page':
     home_page()
 
 # First page -
-elif navigation_tab == 'Publication Analysis':
-    publication_analysis()
+elif navigation_tab == 'US regional Sea level Trend':
+    us_sea_level_trend()
 
 
 # Second Page -
