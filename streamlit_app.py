@@ -50,7 +50,8 @@ def home_page():
              </p>
                 """, unsafe_allow_html=True)
     
-    image = Image.open('Images\Picture1.png')
+    image = Image.open('Images/Picture1.png')
+    #image = Image.open('Images/rohit img/Beaumont Research_Stephenvile Research.png')
     #Setting the image width
     st.image(image, use_column_width = True)
 
