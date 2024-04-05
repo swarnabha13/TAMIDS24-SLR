@@ -61,37 +61,23 @@ def home_page():
              """)
     st.markdown("""
                 <p style='text-align: justify;'>
-                 The analysis has been made on two groups of data: Grants and Publications. We created a dataset with
-                 different publication data including abstract, departments, research institutions and citation data.
-                 Before diving deep into the analysis, we tried to estimate the impact of research using four 
-                 main-terms per abstract word that have been defined per department.                
-                 <ul>
-                 <li> Publication score:
-                 <li> Citation score
-                 <li> Normalized funding
-                 <li> Impact score </ul>
-                 Impact Score =  Normalized(Funding(Topic for dept)) x 
-                 [no of publication (for topic in dept) x Total citation 
-                 for topic]/Total citation for dept
-                 </p>
+                    <span style="font-style: italic;">Absolute Dynamic Topography (ADT)</span> is a record of US east coast sea surface height measurements, acquired via satellites from 1993 to 2023. The measurements are detailed, with a fine spatial resolution of 0.25 degrees for both latitude and longitude. It is instrumental for probing the intricate patterns of ocean circulation, as it captures the dynamic activity of the sea. This activity is depicted through fluctuations in ADT, which are indicative of oceanic currents and swirls. Higher ADT values generally signify warmer ocean currents, while lower values are characteristic of cooler currents.
+                </p>
                 """, unsafe_allow_html=True)
     
-    get_formula()
+    #get_formula()
     
     st.markdown("""
-                <p style='text-align: justify;'>
-             The abstract keywords per department were calculated by using NLP algorithms on the dataset containing the 
-             abstracts of the publications using unigram, bigram and trigram to find the most frequently occurring sequential tokens. 
-             From the sequential tokens, the generic words were removed to formulate a clean corpus which was used to compute the four 
-             types of scores defined above.
+            <p style='text-align: justify;'>
+             <span style="font-style: italic;">Global Mean Sea Level (GMSL)</span> is the area-weighted average of sea surface height anomalies from a 10-day cycle of satellite measurements. It's akin to the 'eustatic sea level,' reflecting a hypothetical uniform sea level in a singular global ocean basin, unaffected by local land movements. GMSL changes are attributed to variations in ocean water mass, basin size, and water density, mainly due to thermal expansion and land ice melt. The trend in GMSL data since 1992 shows a predominantly linear increase, especially after accounting for instrument biases and geological impacts.
              </p>
                 """, unsafe_allow_html=True)
-    st.markdown("""
-                <p style='text-align: justify;'>
-             In order to have a better understanding of these metrics, a graphical representation per department was plotted which 
-             has been included in our website and a few of these plots have been shown below.
-             </p>
-                """, unsafe_allow_html=True)
+    #st.markdown("""
+    #            <p style='text-align: justify;'>
+    #         In order to have a better understanding of these metrics, a graphical representation per department was plotted which 
+    #         has been included in our website and a few of these plots have been shown below.
+    #         </p>
+    #            """, unsafe_allow_html=True)
 
     
     # Overview -
@@ -101,9 +87,16 @@ def home_page():
     st.markdown("""
                 <p style='text-align: justify;'>
 
-                * **Feature Engineering:** Data normalization explained
-                * **Unsupervised Learning:** Clustering based on different features of the data. Rather, with the mapper package, we see a better picture of our clusters which brings us to the visualizations.
-                * **Dynamic Visualization:** About TDA and other visualization. Therefore, the website we have designed is very dynamic and suitable for everyone.
+                * **Spatial and Temporal Analysis:** The Copernicus dataset consists of the ADT data along both temporal and spatial axes. To decouple the changes of ADT in different dates and positions, average ADT along latitude and longitude are calculated. Differences of ADT between different years are compared as well.
+
+                * **Raw time-series analysis:** We do the analysis for the TOPEX, Jason and Sentinel-6 missions dataset from the aggregated dataset by the researchers from Colorado. We also use datasets from the National Tidal Centre (Bureau of Meteorology, Australia), NASA/JPL – satellite altimeter data, particularly TOPEX/Poseidon to do the time series data analysis. These provide sea level rise data from 1992 to 2022 for various latitudes and longitudes.</p>
+                
+                <p>
+                In the Copernicus dataset, we analyze the ADT time-series with a granularity of latitude and longitude. Statistical metrics such as mean and standard deviation are computed to obtain the overall picture.
+
+                * **Pre-processing, box-plot analysis, and time-series clustering:** We apply a 30-filter window and a 3-degree polynomial Savitzky-Golay [1] filter to each time-series in the Copernicus dataset. Next, a statistical analysis using box-plots is performed over the filtered dataset. More specifically, we use monthly information from the dataset to draw a box-plot series. Then, the filtered dataset is used to run clustering analysis over the time-series. For the time-series clustering, we run principal components analysis (PCA) [2] embedding on each time-series to extract meaningful features. Then, the embedded dataset is used to perform clustering analysis using KMeans algorithm.
+
+                * **Quantitative Analysis and Geospatial Visualization:**  The analysis of the Ramsar wetlands dataset focused on determining the average elevation (ELEV_AVG) distribution across various sites to identify elevation ranges critical for assessing submergence risks. This evaluation of elevation quantiles set the stage for further gradient analysis, which ranked the submergence risk based on proximity to sea level and extent of forest cover. By correlating these gradients with the dataset's percentage risk factors, a comprehensive submersion score was developed, reflective of each area's vulnerability to sea level rise. This approach provided a nuanced understanding of which wetlands are at higher risk and offered a robust framework for predicting the impact of rising sea levels on these ecosystems.
              </p>
                 """, unsafe_allow_html=True)
 
