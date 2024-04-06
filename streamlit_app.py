@@ -154,11 +154,11 @@ def get_sea_data(sea):
     #Getting the graph
     HtmlFile = open(f"Images/Swarnabha/{sea}_regions1.html",'r',encoding = 'utf-8')
     source_code_2 = HtmlFile.read()
-    components.html(source_code_2,height = 500)
+    components.html(source_code_2,height = 400)
 
     HtmlFile = open(f"Images/Swarnabha/{sea}_regions2.html",'r',encoding = 'utf-8')
     source_code_2 = HtmlFile.read()
-    components.html(source_code_2,height = 500)
+    components.html(source_code_2,height = 400)
 
 #------------------ Publication Analysis----------------
 def publication_analysis():
@@ -674,7 +674,7 @@ def authors():
                * **Department:** Department of Electrical and Computer Engineering
                * **Degree:** PhD Student 
                * **Email:** swarnabha7@tamu.edu
-               * **LinkedIn:** [linkedin.com/in/swarnabha7/]https://www.linkedin.com/in/swarnabha7/)
+               * **LinkedIn:** [linkedin.com/in/swarnabha7/](https://www.linkedin.com/in/swarnabha7/)
                * **Github:** [github.com/swarnabha13](https://github.com/swarnabha13)
                """)
     st.write("")
@@ -700,8 +700,7 @@ st.image(image, use_column_width=True)
 # Sidebar navigation for users -
 st.sidebar.header('Navigation tab')
 navigation_tab = st.sidebar.selectbox('Choose a tab', ('Home-Page',
- 'US regional Sea level Trend','Collaboration potential', 'Grant Analysis',
- 'Impact score', 'About the Authors'))
+ 'US regional Sea level Trend', 'About the Authors'))
 
 # Displaying pages according to the selection -
 
