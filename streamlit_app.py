@@ -149,6 +149,9 @@ def us_sea_level_trend():
     elif sea == 'North Pacific':
         #Setting the Image
         get_sea_data('NP')
+    elif sea == 'Gulf of Mexico':
+        #Setting the Image
+        get_sea_data('GOM')
         
 def get_sea_data(sea):
     #Getting the graph
