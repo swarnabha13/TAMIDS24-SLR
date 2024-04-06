@@ -152,7 +152,27 @@ def us_sea_level_trend():
     elif sea == 'Gulf of Mexico':
         #Setting the Image
         get_sea_data('GOM')
+
     sea_level_trend(sea)
+
+    st.markdown("""
+                <p style='text-align: justify;'>
+                Our model's projections underscore a continuous uptrend in sea levels, leading to growing concerns about coastal inundation, impacts on marine ecosystems, and implications for climate-related resettlement and adaptation strategies. 
+                The persistent increase aligns with scientific consensus on climate change, suggesting that rising sea levels pose significant challenges in the decades to come.
+                </p>
+
+                <p style='text-align: justify;'>
+                We started the projection of sea level using Long Short-Term Memory (LSTM) networks [3]. LSTMs are a type of recurrent neural network that is particularly designed to remember long-term dependencies, making them suitable for modeling sequences of data over time. 
+                Figure below shows a series of ADT for the U.S. East and Gulf Coasts, with the blue solid curve representing the historical ADT, and the red dashed line representing the prediction. 
+                We can observe that the LSTM model does not accurately capture and predict the seasonality and the rising trend of ADT. 
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
+
+    image = Image.open('Images/Swarnabha/ADT_LSTM.png')
+
+    #Setting the image width
+    st.image(image, use_column_width = True)
 
 def sea_level_trend(sea):
     if sea == 'North Atlantic':
@@ -196,231 +216,7 @@ def get_sea_data(sea):
     source_code_2 = HtmlFile.read()
     components.html(source_code_2,height = 400)
 
-#------------------ Publication Analysis----------------
-def publication_analysis():
-    # Setting the title
-    st.title('Publication Analysis and NLP')
 
-    #description
-    st.markdown("""
-                <p style='text-align: justify;'>
-                The key aspect of the project was to do Natural Language
-                processing on the bibliometric data and find meaningful insights.
-                Different keywords are related to different professors and departments
-                with a possibility or existence of collaboration.
-                """,unsafe_allow_html = True)
-    st.write("")
-
-    #Getting the intial Image
-    col1, col2, col3 = st.columns((1,2.5,1))
-
-    get_topics()
-    
-    st.markdown("""<p style='text-align: justify;'>
-                Initially we started exploration of the corpus with capping the word 
-                limit of sentences of abstract to 10000. The ideas was to find the 
-                frequency of words in abstracts with either high altimetric score 
-                or citation or public responses in different media channels. Then 
-                correlating those words for grant received for the 
-                research/publications. Hence we did the analysis and formed 
-                15 topics with associated keywords where these word occurances 
-                fetched great funds and associated with publications with high 
-                predefined metrics.
-                </p>""", unsafe_allow_html = True)
-    st.write("")
-
-    col1, col2 = st.columns((1,1))
-    dept_lst = [' Aerospace Engineering',' Biochemistry and Biophysics',
-    ' Biological and Agricultural Engineering', ' Biomedical Engineering',
-    ' Chemical Engineering', ' Computer Science and Engineering',
-    ' Learning and Culture', ' Materials Science and Engineering',
-    ' Ocean Engineering', ' Park and Tourism Sciences',
-    ' Veterinary Integrative Biosciences', 'Animal Science',
-    'Biological and Agricultural Engineering', 'Chemistry',
-    'Civil Engineering', 'Electrical and Computer Engineering',
-    'Mechanical Engineering', 'Molecular and Cellular Medicine',
-    'Recreation', 'Teaching', 'Veterinary Physiology and Pharmacology']
-    #Getting dept_1 from user
-    dept_1 = col1.selectbox("Select department",dept_lst)
-  
-
-    #Getting the graph
-    get_dept_collab_graph(dept_1)
-    
-    st.markdown("""
-                <p style ='text-align: justify;'>
-                This graph represents the existing collaboration between departments
-                along with the insight related to the similarity between them based on 
-                the publication data obtained from altmetric website. 
-                x represents other departments with collaborations (some) and y represents
-                the number of publications they have together.
-                We can select a department and look at the common publications
-                they have with some other departments. The departments are sampled based 
-                on high publication counts and non zero collaboration.
-                </p>
-                """,unsafe_allow_html = True)
-    st.write("")
-
-    #Dept_collab interactive analysis
-    st.markdown("""
-                <p style='text-align: justify;'>
-                The following interactive graph is about the departments with different publications
-                for different years, with a possibility at looking at multiple departments.
-                </p>
-                """, unsafe_allow_html = True)
-    st.write(" ")
-    st.write("""
-            We can go to the department collaboration page by clicking on the
-            link. Below is a snapshot of the dept collaboration network analysis.
-            """)
-    # To access the network analysis, press the button below -
-    st.write("")
-    col1, col2, col3 = st.columns((1,1,1))
-    link = '[Go to Department Network Analysis](https://pandey-tushar.github.io/TAMIDS-22/)'
-    col2.markdown(link, unsafe_allow_html=True)
-
-    st.write(" ")
-    #Setting the Image
-    image = Image.open('Images/dept_collab.jpg')
-
-    #Setting the image width
-    st.image(image, use_column_width = True)
-
-    st.write(" ")
-
-
-    #Univ_collab interactive analysis
-    st.markdown("""
-                <p style='text-align: justify;'>
-                The following interactive graph is about the collaboration
-                between different universities, which can be further filtered to
-                different departments.</p>
-                """,unsafe_allow_html=True)
-    st.write(" ")
-    st.write("""
-            You can go to the University collaboration page by clicking on the
-            link. Below is a snapshot of the university collaboration network analysis.
-            """)
-    # To access the network analysis, press the button below -
-    st.write("")
-    col1, col2, col3 = st.columns((1,1,1))
-    link = '[Go to University Network Analysis](https://pandey-tushar.github.io/Datathon-21/)'
-    col2.markdown(link, unsafe_allow_html=True)
-
-    st.write(" ")
-    #Setting the Image
-    image = Image.open('Images/univ_collab.jpg')
-
-    #Setting the image width
-    st.image(image, use_column_width = True)
-
-    st.write(" ")
-
-
-    
-    
-#-------------------- Potential Collab -----------------    
-def get_dept_similar_graph(dept):
-    #Setting the Image
-    image = Image.open('Images/rohit img/{dept}.png')
-
-    #Setting the image width
-    st.image(image, use_column_width = True)
-    
-def collaboration_plot():
-    #Setting the title
-    st.title("Similar research areas for different departments")
-
-    #Description
-    st.markdown("""
-                <p style='text-align: justify;'>
-                 A similarity score is generated for every combination of the
-                 department and in this case, we use the cosine similarity. 
-                 Higher the cosine similarity score between two departments, 
-                 higher is their potential to work together on various subdisciplines.
-                </p>""",unsafe_allow_html = True)
-    st.write("")
-
-    #Getting the initial image
-    col1, col2, col3 = st.columns((1,2.5,1))
-
-    col1,col2 = st.columns((1,1))
-    dept_opt = ['Amarillo Research_Lubbock Research','Beaumont Research_Ecology and Conservation biology',
-                'Beaumont Research_Lubbock Research', 'Beaumont Research_Stephenvile Research',
-                'Biochemistry_Epigenetics',
-                'Biochemistry_Medical Physiology',
-                'Center for Microencapsule and Drug Delivery_Irma Lerma Rangel College of Pharmacy',
-                'Chemical Engineering_Industrial Engineering',
-                'Corpus Christi Entomology_Lubbock Entomology',
-                'Ecology_Lubbock Research',
-                'Epigenetics_Pharmaceuticals',
-                'Geography_Ocena Engineering',
-                'Marketing_Multiresolution Modelling',
-                'Veterinary Physiology_Medical Physiology']
-    
-    #Geting dept from user
-    dept = col1.selectbox("Select department",dept_opt)    
-    if dept == 'Amarillo Research_Lubbock Research':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Amarillo Research_Lubbock Research.png')
-    elif dept == 'Beaumont Research_Ecology and Conservation biology':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Beaumont Research_Ecology and Conservation biology.png')
-    elif dept == 'Beaumont Research_Lubbock Research':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Beaumont Research_Lubbock Research.png')
-    elif dept == 'Beaumont Research_Stephenvile Research':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Beaumont Research_Stephenvile Research.png')
-    elif dept == 'Biochemistry_Epigenetics':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Biochemistry_Epigenetics.png')
-    elif dept == 'Center for Microencapsule and Drug Delivery_Irma Lerma Rangel College of Pharmacy':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Center for Microencapsule and Drug Delivery_Irma Lerma Rangel College of Pharmacy.png')
-    elif dept == 'Chemical Engineering_Industrial Engineering':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Chemical Engineering_Industrial Engineering.png')
-    elif dept == 'Corpus Christi Entomology_Lubbock Entomology':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Corpus Christi Entomology_Lubbock Entomology.png')
-    elif dept == 'Ecology_Lubbock Research':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Ecology_Lubbock Research.png')
-    elif dept == 'Geography_Ocena Engineering':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Geography_Ocena Engineering.png')
-    elif dept == 'Marketing_Multiresolution Modelling':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Marketing_Multiresolution Modelling.png')
-    elif dept == 'Veterinary Physiology_Medical Physiology':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Veterinary Physiology_Medical Physiology.png')
-    elif dept == 'Epigenetics_Pharmaceuticals':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Epigenetics_Pharmaceuticals.png')
-    elif dept == 'Biochemistry_Medical Physiology':
-        #Setting the Image
-        image = Image.open('Images/rohit img/Biochemistry_Medical Physiology.png')
-    #Setting the image width
-    st.image(image, use_column_width = True)
-    
-    st.markdown("""
-                <p style='text-align: justify;'>
-                 A total of 83028 (408C2) comparisons were made and we could see that various 
-                 departments were exclusively working on similar subdisciplines. We could thus 
-                 make recommendations to these departments to collaborate if they don’t already. 
-                 The following plots show the departments that have high potential of 
-                 collaboration, the plots also show the subdisciplines in which the departments 
-                 should be collaborating. We visually analyze the graphs to analyze which is a 
-                 better approach for the subdiscipline representation.
-                </p>""",unsafe_allow_html = True)
-    st.write("")
-    
-    
-    
-    
-    
 #------------------ Grant Analysis -------------------------
 def get_grant_graph(dept, year):
     # Getting the Graph -
