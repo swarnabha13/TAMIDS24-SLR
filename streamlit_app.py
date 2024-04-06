@@ -139,7 +139,26 @@ def us_sea_level_trend():
                 """, unsafe_allow_html=True)
     st.write("")
 
+    col1,col2 = st.columns((1,1))
+    sea_opt = ['North Atlantic','North Pacific','Gulf of Mexico']
+    #Geting dept from user
+    sea = col1.selectbox("Select the sea region around US",sea_opt)    
+    if sea == 'North Atlantic':
+        #Setting the Image
+        get_sea_data('NA')
+    elif sea == 'North Pacific':
+        #Setting the Image
+        get_sea_data('NP')
+        
+def get_sea_data(sea):
+    #Getting the graph
+    HtmlFile = open(f"Images/Swarnabha/{sea}_regions1.html",'r',encoding = 'utf-8')
+    source_code_2 = HtmlFile.read()
+    components.html(source_code_2,height = 500)
 
+    HtmlFile = open(f"Images/Swarnabha/{sea}_regions2.html",'r',encoding = 'utf-8')
+    source_code_2 = HtmlFile.read()
+    components.html(source_code_2,height = 500)
 
 #------------------ Publication Analysis----------------
 def publication_analysis():
