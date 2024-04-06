@@ -152,12 +152,45 @@ def us_sea_level_trend():
     elif sea == 'Gulf of Mexico':
         #Setting the Image
         get_sea_data('GOM')
+    sea_level_trend(sea)
+
+def sea_level_trend(sea):
+    if sea == 'North Atlantic':
+        #Setting the Image
+         st.markdown("""
+        <p>North Atlantic: Estimated Sea Level<sub>NA</sub> = -49.34 sin(6.27×year+2.5) + 3.25×year - 6504</p>
+                     """, unsafe_allow_html=True)
+        
+    elif sea == 'North Pacific':
+        #Setting the Image
+         st.markdown("""
+        <p>North Pacific: Estimated Sea Level<sub>NP</sub> = -55.56 sin(6.27×year+2.5) + 3.78×year - 7550</p>
+                     """, unsafe_allow_html=True)
+        
+    elif sea == 'Gulf of Mexico':
+        #Setting the Image
+         st.markdown("""
+        <p>Gulf of Mexico: Estimated Sea Level<sub>GM</sub> = -40.98 sin(6.27×year+2.5) + 4.96×year - 9935</p>
+                        """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <p>Where year is the number of years since 2000.</p>
+                """, unsafe_allow_html=True)
+    st.write("")
         
 def get_sea_data(sea):
     #Getting the graph
     HtmlFile = open(f"Images/Swarnabha/{sea}_regions1.html",'r',encoding = 'utf-8')
     source_code_2 = HtmlFile.read()
     components.html(source_code_2,height = 400)
+
+    st.markdown("""
+                <p style='text-align: justify;'>
+                Historical measurements are traced using blue lines, revealing a notable ascending trajectory punctuated by regular fluctuations. A polynomial regression model, shown in Orange, adeptly captures this upward pattern and the inherent periodicity. 
+                Red lines extend this model into the future, projecting a persistent rise in sea levels.
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
 
     HtmlFile = open(f"Images/Swarnabha/{sea}_regions2.html",'r',encoding = 'utf-8')
     source_code_2 = HtmlFile.read()
