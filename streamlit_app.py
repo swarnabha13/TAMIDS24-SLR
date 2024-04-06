@@ -53,7 +53,9 @@ def home_page():
     image = Image.open('Images/Picture1.png')
     #image = Image.open('Images/rohit img/Beaumont Research_Stephenvile Research.png')
     #Setting the image width
-    st.image(image, use_column_width = True)
+    # Dividing screen into 3 parts -
+    col1, col2, col3 = st.columns((0.25,1,0.25))
+    col2.image(image, use_column_width = True)
 
     # Data Collection and Pre-processing -
     st.write("""
@@ -169,10 +171,13 @@ def us_sea_level_trend():
                 """, unsafe_allow_html=True)
     st.write("")
 
+    # Dividing screen into 3 parts -
+    col1, col2, col3 = st.columns((0.25,1,0.25))
+
     image = Image.open('Images/Swarnabha/ADT_LSTM.png')
 
     #Setting the image width
-    st.image(image, use_column_width = True)
+    col2.image(image, use_column_width = True)
 
 def sea_level_trend(sea):
     if sea == 'North Atlantic':
@@ -216,6 +221,54 @@ def get_sea_data(sea):
     source_code_2 = HtmlFile.read()
     components.html(source_code_2,height = 400)
 
+
+
+#_______________________Impacts of Glacier Melting_______________________
+def get_glacier_impact():
+    # Setting the title
+    st.title("Impacts of Glacier Melting")
+
+    # Description
+    st.markdown("""
+                <p style='text-align: justify;'>
+                The cumulative loss of mass from glaciers worldwide is projected to continue increasing over time, as shown by the equation:
+                </p>
+                <p>
+                Cumulative Loss of Mass (Gigatonnes) = -8.73y<sup>2</sup> + 3.5×10<sup>4</sup>y - 3.46×10<sup>7</sup>
+                </p>
+                <p style='text-align: justify;'>
+                Where y is the number of years since 2000. This ongoing ice melt will cause sea levels to rise at varying rates in different U.S. coastal regions based on factors like ocean circulation patterns, land movement, and proximity to melting glaciers.
+                </p>
+                <p style='text-align: justify;'>
+                Projected sea level rise equations for 2024 estimate:
+                </p>
+                <ul>
+                <li> North Atlantic: 6.38 meter rise
+                <li> North Pacific: 7.40 meter rise
+                <li> Gulf of Mexico: 9.78 meter rise
+                </ul>
+                <p style='text-align: justify;'>
+                The impacts of this sea level rise include permanent inundation of low-lying areas, more frequent coastal flooding from high tides and storm surges, erosion of beaches and cliffs, saltwater intrusion into freshwater supplies, and damage to critical infrastructure like roads, utilities, and residential/commercial property.
+                </p>
+                <p style='text-align: justify;'>
+                Hundreds of millions of people living in U.S. coastal cities and communities face displacement, along with profound economic disruptions across sectors like tourism, agriculture, fishing, and trade. Coastal ecosystems like wetlands and estuaries that provide storm protection and marine habitats are also at high risk.
+                </p>
+                <p style='text-align: justify;'>
+                Mitigating the current and future impacts of sea level rise requires a multi-faceted approach of reducing global greenhouse gas emissions to limit temperature rise, implementing coastal adaptation measures, developing policies for managed retreat from high-risk areas, and investing in resilient infrastructure to protect coastal communities and economies.
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
+
+    
+
+    # Dividing screen into 3 parts -
+    col1, col2, col3 = st.columns((0.5,1,0.5))
+
+    # Setting the image -
+    image = Image.open('Images/Swarnabha/Glacier_melt.png')
+
+    # Setting the image width -
+    col2.image(image, use_column_width=True)
 
 #------------------ Grant Analysis -------------------------
 def get_grant_graph(dept, year):
@@ -532,7 +585,7 @@ st.image(image, use_column_width=True)
 # Sidebar navigation for users -
 st.sidebar.header('Navigation tab')
 navigation_tab = st.sidebar.selectbox('Choose a tab', ('Home-Page',
- 'US regional Sea level Trend', 'About the Authors'))
+ 'US regional Sea level Trend', 'Impacts of Glacier Melting','About the Authors'))
 
 # Displaying pages according to the selection -
 
@@ -543,6 +596,10 @@ if navigation_tab == 'Home-Page':
 # First page -
 elif navigation_tab == 'US regional Sea level Trend':
     us_sea_level_trend()
+
+# Second page -
+elif navigation_tab == 'Impacts of Glacier Melting':
+    get_glacier_impact()
 
 
 # Second Page -
