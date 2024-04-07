@@ -692,19 +692,6 @@ elif navigation_tab == 'Modeling and Analysis':
 elif navigation_tab == 'Sea level Trends around US':
     us_sea_level_trend()
 
-
-# Second Page -
-elif navigation_tab == 'Collaboration potential':
-    collaboration_plot()
-
-# Third Page -
-elif navigation_tab == 'Grant Analysis':
-    get_grant_analysis()
-
-# Fourth Page -
-elif navigation_tab == 'Impact score':
-    impact_score()
-
 # Fifth Page -
 elif navigation_tab == 'Global Temperature':
     global_temperature()
