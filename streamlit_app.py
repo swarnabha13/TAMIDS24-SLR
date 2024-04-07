@@ -245,11 +245,11 @@ def us_sea_viz():
     col1, col2, col3, col4 = st.columns((0.3, 1.9, 2.2, 0.3))
 
     with col2:
-        image = Image.open('Images\Hailiang\Avg_ADT.png')
+        image = Image.open('Images/Hailiang/Avg_ADT.png')
         st.image(image, use_column_width = True)
 
     with col3:
-        image = Image.open('Images\Hailiang\ADT_change.png')
+        image = Image.open('Images/Hailiang/ADT_change.png')
         st.image(image, use_column_width = True)
 
     st.markdown("""
@@ -279,7 +279,7 @@ def get_rt_viz():
                 """, unsafe_allow_html=True)
     st.write("")
 
-    image = Image.open(r'Images\clustering\raw_time_series_adt.png')
+    image = Image.open(r'Images/clustering/raw_time_series_adt.png')
     col1, col2, col3 = st.columns((0.25,1,0.25))
     col2.image(image, use_column_width = True)
 
