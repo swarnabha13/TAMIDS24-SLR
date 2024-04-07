@@ -50,7 +50,7 @@ def home_page():
              </p>
                 """, unsafe_allow_html=True)
     
-    image = Image.open('Images/Picture1.png')
+    image = Image.open('Images\Souryendu\Enhanced_Sea_Level_Rise_Clean.png')
     #image = Image.open('Images/rohit img/Beaumont Research_Stephenvile Research.png')
     #Setting the image width
     # Dividing screen into 3 parts -
@@ -117,7 +117,7 @@ def get_dept_collab_graph(dept_1):
 #_______________________US regional Sea level Trend_______________________
 def us_sea_level_trend():
     # Setting the title
-    st.title('US Regional Sea Level Trend')
+    st.title('Modeling the US Regional Sea Level Trends')
 
     # Description
     st.markdown("""
@@ -221,6 +221,80 @@ def get_sea_data(sea):
     HtmlFile = open(f"Images/Swarnabha/{sea}_regions2.html",'r',encoding = 'utf-8')
     source_code_2 = HtmlFile.read()
     components.html(source_code_2,height = 400)
+
+#_______________________Sea level Trends around US's coastal regions VIZ_______________________
+def us_sea_viz():
+    # Setting the title
+    st.title('Sea Level Trends around US Coastal Regions')
+
+    # Description
+    st.markdown("""
+                <p style='text-align: justify;'>
+                The United States is home to a diverse array of coastal regions, each facing unique challenges from rising sea levels. From the North Atlantic to the Gulf of Mexico, these areas are experiencing significant changes in sea level that have far-reaching implications for local communities, ecosystems, and infrastructure. By analyzing historical sea level data and projecting future trends, we can gain valuable insights into the evolving nature of these coastal environments and the urgent need for adaptive measures to mitigate the impacts of climate change.
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
+
+    st.markdown("""
+                <p style='text-align: justify;'>
+                Figure on the left presents a time series of average ADT values in the U.S. East Coast and the Gulf of Mexico. The time series starts in 1992 and ends in 2024. The overall trend provides a clear indication of the seasonality and potentially systematic variations in sea surface height. The trend seen in the graph, with its distinct oscillations, suggests a long-term rise in ADT. This upward trend might reflect broader climatic changes, such as global warming, which could be contributing to sea level rise through glacial melt and thermal expansion of seawater.
+                </p>""",unsafe_allow_html = True)
+    st.write("")
+
+    # Set the width of the columns - we use cols 2 and 3 for two side-by-side images
+    col1, col2, col3, col4 = st.columns((0.3, 1.9, 2.2, 0.3))
+
+    with col2:
+        image = Image.open('Images\Hailiang\Avg_ADT.png')
+        st.image(image, use_column_width = True)
+
+    with col3:
+        image = Image.open('Images\Hailiang\ADT_change.png')
+        st.image(image, use_column_width = True)
+
+    st.markdown("""
+                <p style='text-align: justify;'>
+                Figure on the right is a heatmap indicating changes in ADT between 1992 and 2022, on Jan. 1st, with blue tones representing an increase in sea surface height. The majority of the map is shaded in blue, with varying intensities, indicating that there has generally been a rise in sea surface height across the U.S. East and Gulf Coasts, over the three-decade span. In Figures 6 and 7, the trend is consistent with observations of global sea level rise.
+                </p>""",unsafe_allow_html = True)
+    st.write("")
+
+    col1,col2 = st.columns((1,1))
+    viz_opt = ['Raw time-series visualization','Time-series trend seasonally','Time-series clustering']
+    #Geting dept from user
+    viz = col1.selectbox("Select the Visualization and Interpretation",viz_opt)    
+    if (viz == 'Raw time-series visualization'):
+        get_rt_viz()
+    else:
+        get_temperature_differece_season(season)
+
+
+def get_rt_viz():
+    # Description of the images above.
+    st.markdown("""
+                <p style='text-align: justify;'>
+
+                So far, our analysis has focused on a global picture and not depict regional patterns. Then, we use the data with a granularity of latitude-longitude (lat-lon) time-series from the Copernicus dataset, which means that each latitude-longitude combination has a time-series for the ADT. In the next figure, the time-series of 9 lat-lon points are plotted as an exploratory analysis of the dataset. The 9 lat-lon points are selected such that these have larger ADT changes. The time-series behave differently even though these 9 lat-lon points are adjacent to each other. For instance, points (38, -70), (38, -68), (38, -66) have a positive steady level and high variation of ADT, while points (42, -70), (42, -68), (42, -66) have a steady level close to zero and low variation of ADT. I.e. large values of mean and standard deviation relate to the points (38, -70), (38, -68), (38, -66). Figure 8 shows that each lat-lon point has a particular steady level, variation, noise and trend, which would enrich our prior analysis increasing the granularity of the analysis.
+                
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
+
+    image = Image.open(r'Images\clustering\raw_time_series_adt.png')
+    col1, col2, col3 = st.columns((0.25,1,0.25))
+    col2.image(image, use_column_width = True)
+
+    # Transition to the next section
+    st.markdown("""
+                <p style='text-align: justify;'>
+
+                To delve deeper into the sea level trends around US coastal regions, we analyze the historical data and projected trends for the North Atlantic, North Pacific, and Gulf of Mexico. By examining the unique characteristics of each region and the factors influencing sea level rise, we can gain valuable insights into the evolving nature of these coastal environments and the urgent need for adaptive measures to mitigate the impacts of climate change.
+                
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
+
+    # Dividing screen into 3 parts -
+    col1, col2, col3 = st.columns((0.25,1,0.25))
 
 
 
@@ -675,10 +749,10 @@ st.sidebar.header('Navigation tab')
 navigation_tab = st.sidebar.selectbox('Choose a tab', 
                                       (
                                           'Home Page', 
+                                          'Global Temperature',
                                           'Impacts of Glacier Melting', 
                                           'Modeling and Analysis', 
                                           'Sea level Trends around US', 
-                                          'Global Temperature', 
                                           'About the Authors'
                                           ))
 # Displaying pages according to the selection -
@@ -686,6 +760,10 @@ navigation_tab = st.sidebar.selectbox('Choose a tab',
 # Home page -
 if navigation_tab == 'Home Page':
     home_page()
+
+# First Page -
+elif navigation_tab == 'Global Temperature':
+    global_temperature()
 
 # Second page -
 elif navigation_tab == 'Impacts of Glacier Melting':
@@ -697,11 +775,9 @@ elif navigation_tab == 'Modeling and Analysis':
 
 # Fourth page -
 elif navigation_tab == 'Sea level Trends around US':
-    us_sea_level_trend()
+    us_sea_viz()
 
-# Fifth Page -
-elif navigation_tab == 'Global Temperature':
-    global_temperature()
+
     
 
 # About Page -
