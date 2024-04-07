@@ -605,8 +605,94 @@ def impact_score():
                 "Canonical choice of metric - Impact Score based on normalized values"
                 </p>""",unsafe_allow_html=True)
     st.write(" ")
-    
-    
+
+#------------------ Global Temperature -------------------------    
+
+def get_temperature_differece_year():
+    image = Image.open('Images/GlobalTemperature/TempDiff_AllYear.png')
+    st.image(image, use_column_width = True)
+def get_temperature_differece_season(sea='AllYear'):
+    image = Image.open(f'Images/GlobalTemperature/TempDiff_{sea}.png')
+    st.image(image, use_column_width = True)
+
+def global_temperature():
+    # Setting the title
+    st.title('Global Temperature Trend')
+
+    # Intro paragraph
+    st.markdown("""
+                <p style='text-align: justify;'>
+
+                ### Temperal Distribution of Temperature Changes
+                Climate change is one of the most pressing issues of our time, impacting ecosystems, weather patterns, and global sea levels. To understand its progression, it is crucial to analyze historical temperature data. In the quest to comprehend these changes, researchers often compare temperature averages over different time periods. The following visual analysis presents a stark comparison of average monthly temperatures across two separate decades, revealing not just seasonal variations but also a broader trend that may have profound implications for our planet’s future.
+
+                
+                </p>""",unsafe_allow_html = True)
+    st.write("")
+
+    # Set the width of the columns - we use cols 2 and 3 for two side-by-side images
+    col1, col2, col3, col4 = st.columns((0.3, 2.2, 2.2, 0.3))
+
+    with col2:
+        image = Image.open('Images/GlobalTemperature/AveMonthlyTemperature.png')
+        st.image(image, use_column_width = True)
+
+    with col3:
+        image = Image.open('Images/GlobalTemperature/AveMonthlyTemperature2.png')
+        st.image(image, use_column_width = True)
+
+    # Description of the images above.
+    st.markdown("""
+                <p style='text-align: justify;'>
+
+                The figures above present a comparison of average monthly temperatures between the periods 1995-2000 and 2015-2020, illustrating a general warming trend. In particular, the right figure highlights that the temperature increase even exceeds 2.5°F in September. This significant temperature rise is likely to contribute to sea level rise.
+                
+                </p>""",unsafe_allow_html = True)
+    st.write("")
+
+    # Transition to the next section
+    st.markdown("""
+                <p style='text-align: justify;'>
+
+                ### Spatial Distribution of Temperature Changes
+                Over the past few decades, climate change has increasingly altered the fabric of our environment, manifesting in significant temperature shifts with deep and lasting impacts. The following set of figures presents a visual comparison of average temperature differences across the United States between two distinct time periods: 1995-2000 and 2015-2020.   \\
+                This analysis spans all four seasons as well as cumulative annual data, offering a comprehensive view of how the changing climate has reshaped temperature norms. Each map reveals the spatial distribution of temperature changes, highlighting regional variations and underscoring the nuanced ways in which climate change is experienced differently across the country. Through this lens, we examine the broader narrative of a warming planet, reflecting on the seasonal intricacies that define and drive the myriad ecological and socio-economic consequences of this global challenge.
+                
+                </p>""",unsafe_allow_html = True)
+    st.write("")
+
+    col1,col2 = st.columns((1,1))
+    season_opt = ['Whole Year','Spring','Summer', 'Fall', 'Winter']
+    #Geting dept from user
+    season = col1.selectbox("Select the season within a year",season_opt)    
+    if (season == 'Whole Year'):
+        get_temperature_differece_year()
+    else:
+        get_temperature_differece_season(season)
+
+    st.markdown("""
+                <p style='text-align: justify;'>
+
+                The annual composite figure underscores an unmistakable upward trend in average yearly temperatures across the majority of states, with Arizona recording the most pronounced increase at 6.74°F. Seasonal dissection of this warming reveals a consistent rise during the spring, summer, and fall across most states. Spring emerges as the season with the most widespread temperature escalation, while summer's peak in Arizona at 7.86°F and fall's sharp rise. Conversely, winter presents a contrasting landscape; states in the Midwest, including Idaho, Montana, Wyoming, and Utah, register a slight temperature decrease, with Idaho experiencing the most significant dip at -1.54°F. However, this cooling is not ubiquitous, as the remaining states continue to experience a warming winter season. This nuanced seasonal and regional variation in temperature changes points to a complex interplay of climate dynamics that warrant closer investigation and targeted response strategies.
+                
+                </p>""",unsafe_allow_html = True)
+    st.write("")
+
+
+    # col1,col2 = st.columns((1,1))
+    # sea_opt = ['North Atlantic','North Pacific','Gulf of Mexico']
+    # #Geting dept from user
+    # sea = col1.selectbox("Select the sea region around US",sea_opt)    
+    # if sea == 'North Atlantic':
+    #     #Setting the Image
+    #     get_sea_data('NA')
+    # elif sea == 'North Pacific':
+    #     #Setting the Image
+    #     get_sea_data('NP')
+    # elif sea == 'Gulf of Mexico':
+    #     #Setting the Image
+    #     get_sea_data('GOM')
+    # sea_level_trend(sea)
 
 #------------------ About the Authors -------------------------
 def authors():
@@ -736,7 +822,7 @@ st.image(image, use_column_width=True)
 # Sidebar navigation for users -
 st.sidebar.header('Navigation tab')
 navigation_tab = st.sidebar.selectbox('Choose a tab', ('Home-Page',
- 'US regional Sea level Trend', 'About the Authors'))
+ 'US regional Sea level Trend', 'Global Temperature', 'About the Authors'))
 
 # Displaying pages according to the selection -
 
@@ -760,6 +846,10 @@ elif navigation_tab == 'Grant Analysis':
 # Fourth Page -
 elif navigation_tab == 'Impact score':
     impact_score()
+
+# Fifth Page -
+elif navigation_tab == 'Global Temperature':
+    global_temperature()
     
 
 
