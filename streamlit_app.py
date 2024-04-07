@@ -513,10 +513,10 @@ def global_temperature():
     st.write("")
 
     col1,col2 = st.columns((1,1))
-    season_opt = ['Whole Year','Spring','Summer', 'Fall', 'Winter']
+    season_opt = ['Annual','Spring','Summer', 'Fall', 'Winter']
     #Geting dept from user
     season = col1.selectbox("Select the season within a year",season_opt)    
-    if (season == 'Whole Year'):
+    if (season == 'Annual'):
         get_temperature_differece_year()
     else:
         get_temperature_differece_season(season)
@@ -524,7 +524,7 @@ def global_temperature():
     st.markdown("""
                 <p style='text-align: justify;'>
 
-                The annual composite figure underscores an unmistakable upward trend in average yearly temperatures across the majority of states, with Arizona recording the most pronounced increase at 6.74°F. Seasonal dissection of this warming reveals a consistent rise during the spring, summer, and fall across most states. Spring emerges as the season with the most widespread temperature escalation, while summer's peak in Arizona at 7.86°F and fall's sharp rise. Conversely, winter presents a contrasting landscape; states in the Midwest, including Idaho, Montana, Wyoming, and Utah, register a slight temperature decrease, with Idaho experiencing the most significant dip at -1.54°F. However, this cooling is not ubiquitous, as the remaining states continue to experience a warming winter season. This nuanced seasonal and regional variation in temperature changes points to a complex interplay of climate dynamics that warrant closer investigation and targeted response strategies.
+                The comprehensive review of temperature data reveals a nationwide warming trend, with an overall average annual temperature increase of 0.93°F. A seasonal breakdown indicates that the temperature rise is most pronounced in the fall, with an average elevation of 2.36°F, suggesting substantial alterations to this transitional period. Spring and summer follow closely, recording average increases of 1.36°F and 1.72°F respectively, which could have implications for ecosystems and agriculture, as well as energy consumption patterns. The winter season, while generally milder, still exhibits an average upturn of 1.03°F, despite the slight cooling observed in the central western states such as Idaho, where the decrease reaches as low as -1.54°F. Arizona's summer surge to a peak increase of 7.86°F and its record annual high underscore the acute challenges faced by this state. This intricate seasonal analysis not only reflects the pervasive impact of climate change but also emphasizes the need for adaptive measures to address the resultant ecological and socio-economic shifts.
                 
                 </p>""",unsafe_allow_html = True)
     st.write("")
