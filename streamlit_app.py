@@ -131,8 +131,9 @@ def us_sea_level_trend():
 
     # Getting the graph
     HtmlFile = open("Images/Swarnabha/3d_plot_with_regions.html", 'r', encoding='utf-8')
-    source_code_2 = HtmlFile.read()
-    components.html(source_code_2, height=700)
+    with col2:
+        source_code_2 = HtmlFile.read()
+        components.html(source_code_2, height=700)
 
     st.markdown("""
                 <p style='text-align: justify;'>
