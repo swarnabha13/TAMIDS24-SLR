@@ -264,8 +264,37 @@ def us_sea_viz():
     viz = col1.selectbox("Select the Visualization and Interpretation",viz_opt)    
     if (viz == 'Raw time-series visualization'):
         get_rt_viz()
-    else:
-        get_temperature_differece_season(season)
+    elif (viz == 'Time-series trend seasonally'):
+        get_season_viz()
+
+
+def get_season_viz():
+    # Description of the images above.
+    st.markdown("""
+                <p style='text-align: justify;'>
+
+                The Copernicus data is smoothed using a Savitzky-Golay filter for each lat-lon time-series as described in Methodology. Then, we explore the global trend of the smoothed dataset using a series of box plots that summarize monthly data. Figure below shows the overall trend that has a seasonality with a period of a year, which supports our prior analysis of the overall mean. Figure below also shows that the larger values of ADT happen during September, October and November (Fall season); while the lower values are during March, April and May (Spring season). In addition, the smoothed dataset shows few outliers that allow further analysis of the time-series.
+                
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
+
+    image = Image.open(r'Images/clustering/smoothed_seasonal_trend.png')
+    col1, col2, col3 = st.columns((0.25,1,0.25))
+    col2.image(image, use_column_width = True)
+
+    # Transition to the next section
+    st.markdown("""
+                <p style='text-align: justify;'>
+
+                On the other hand, statistical metrics such as the mean and standard deviation from Figure above might provide insights once projected to spatial coordinates.
+                
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
+
+    # Dividing screen into 3 parts -
+    col1, col2, col3 = st.columns((0.25,1,0.25))
 
 
 def get_rt_viz():
