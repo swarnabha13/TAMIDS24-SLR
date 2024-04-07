@@ -461,6 +461,7 @@ def impact_score():
 def get_temperature_differece_year():
     image = Image.open('Images/GlobalTemperature/TempDiff_AllYear.png')
     st.image(image, use_column_width = True)
+
 def get_temperature_differece_season(sea='AllYear'):
     image = Image.open(f'Images/GlobalTemperature/TempDiff_{sea}.png')
     st.image(image, use_column_width = True)
@@ -671,9 +672,15 @@ st.image(image, use_column_width=True)
 
 # Sidebar navigation for users -
 st.sidebar.header('Navigation tab')
-navigation_tab = st.sidebar.selectbox('Choose a tab', ('Home Page',
-'Impacts of Glacier Melting', 'Modeling and Analysis', 'Sea level Trends around US', 'Global Temperature', 'About the Authors'))
-
+navigation_tab = st.sidebar.selectbox('Choose a tab', 
+                                      (
+                                          'Home Page', 
+                                          'Impacts of Glacier Melting', 
+                                          'Modeling and Analysis', 
+                                          'Sea level Trends around US', 
+                                          'Global Temperature', 
+                                          'About the Authors'
+                                          ))
 # Displaying pages according to the selection -
 
 # Home page -
@@ -696,8 +703,6 @@ elif navigation_tab == 'Sea level Trends around US':
 elif navigation_tab == 'Global Temperature':
     global_temperature()
     
-
-
 
 # About Page -
 elif navigation_tab == 'About the Authors':
