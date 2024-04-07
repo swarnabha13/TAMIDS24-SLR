@@ -585,36 +585,29 @@ st.image(image, use_column_width=True)
 
 # Sidebar navigation for users -
 st.sidebar.header('Navigation tab')
-navigation_tab = st.sidebar.selectbox('Choose a tab', ('Home-Page',
- 'US regional Sea level Trend', 'Impacts of Glacier Melting','About the Authors'))
+navigation_tab = st.sidebar.selectbox('Choose a tab', ('Home Page',
+'Impacts of Glacier Melting', 'Modeling and Analysis', 'Sea level Trends around US', 'About the Authors'))
 
 # Displaying pages according to the selection -
 
 # Home page -
-if navigation_tab == 'Home-Page':
+if navigation_tab == 'Home Page':
     home_page()
-
-# First page -
-elif navigation_tab == 'US regional Sea level Trend':
-    us_sea_level_trend()
 
 # Second page -
 elif navigation_tab == 'Impacts of Glacier Melting':
     get_glacier_impact()
 
+# Third page -
+elif navigation_tab == 'Modeling and Analysis':
+    us_sea_level_trend()
 
-# Second Page -
-elif navigation_tab == 'Collaboration potential':
-    collaboration_plot()
+# Fourth page -
+elif navigation_tab == 'Sea level Trends around US':
+    us_sea_level_trend()
 
-# Third Page -
-elif navigation_tab == 'Grant Analysis':
-    get_grant_analysis()
 
-# Fourth Page -
-elif navigation_tab == 'Impact score':
-    impact_score()
-    
+ 
 
 
 
