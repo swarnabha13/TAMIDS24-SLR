@@ -350,6 +350,51 @@ def get_rt_viz():
     col1, col2, col3 = st.columns((0.25,1,0.25))
 
 
+#_______________________Time Series Clustering_______________________
+def time_series_clusters():
+    # Setting the title
+    st.title('Time Series Clustering')
+
+    # Description
+    st.markdown("""
+                <p style='text-align: justify;'>
+                Time series clustering is a powerful technique for identifying patterns and trends in sequential data. By grouping similar time series together, we can uncover hidden insights and relationships that might not be apparent from individual analysis. In the context of sea level rise, time series clustering can help us understand the underlying dynamics of oceanic changes and predict future trends with greater accuracy.
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
+
+
+    # Getting the initial image
+    col1, col2, col3 = st.columns((1.5,2.5,1.5))
+
+    image = Image.open('Images/clustering/east_coast_clustering.png')
+
+    # Setting the image width
+    col2.image(image, use_column_width=True)
+
+    # Description of the images above.
+    st.markdown("""
+                <p style='text-align: justify;'>
+
+                The time-series clustering follows the procedure described in the Methodology using the PCA embedding. In the overall picture, the segmentation divides the area into 6 clusters (areas of interest), having each cluster with similar metrics. i.e. cluster 2 (gulf of Mexico coast) in Figure below [left] has an ADT mean of 0.34m, while cluster 0 (deep in the Atlantic Ocean) of 0.73. Moreover, the areas of interest are located on the coast, thus, we select clusters 1, 2, and 4. In Figure below[right], an additional segmentation reveals sub-clusters that provide insights over the East Coast. Finally, the coast is divided into 4 clusters.
+                
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
+
+
+    # Set the width of the columns - we use cols 2 and 3 for two side-by-side images
+    col1, col2, col3, col4 = st.columns((0.3, 2.2, 2.2, 0.3))
+
+    with col2:
+        image = Image.open('Images/clustering/east_full_clustering_map.png')
+        st.image(image, use_column_width = True)
+
+    with col3:
+        image = Image.open('Images/clustering/east_coast_clustering_map.png')
+        st.image(image, use_column_width = True)
+
+
 
 #_______________________Impacts of Glacier Melting_______________________
 def get_glacier_impact():
@@ -806,6 +851,7 @@ navigation_tab = st.sidebar.selectbox('Choose a tab',
                                           'Impacts of Glacier Melting', 
                                           'Modeling and Analysis', 
                                           'Sea level Trends around US', 
+                                          'Time-series clustering',
                                           'About the Authors'
                                           ))
 # Displaying pages according to the selection -
@@ -830,7 +876,9 @@ elif navigation_tab == 'Modeling and Analysis':
 elif navigation_tab == 'Sea level Trends around US':
     us_sea_viz()
 
-
+# Fifth page -
+elif navigation_tab == 'Time-series clustering':
+    time_series_clusters()
     
 
 # About Page -
