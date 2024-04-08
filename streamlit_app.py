@@ -50,7 +50,7 @@ def home_page():
              </p>
                 """, unsafe_allow_html=True)
     
-    image = Image.open('Images\Souryendu\Enhanced_Sea_Level_Rise_Clean.png')
+    image = Image.open('Images/Souryendu/Enhanced_Sea_Level_Rise_Clean.png')
     #image = Image.open('Images/rohit img/Beaumont Research_Stephenvile Research.png')
     #Setting the image width
     # Dividing screen into 3 parts -
