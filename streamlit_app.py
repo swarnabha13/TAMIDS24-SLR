@@ -769,6 +769,31 @@ def authors():
     st.title("Team Despacito")
     st.write(" ")
 
+    # Dividing screen into 2 parts -
+    col1, col2, col3 = st.columns((0.75,0.1,2))
+
+    # Setting the image -
+    image = Image.open('Images/cristhian.jpg')
+
+    # Setting the image width -
+    col1.write("")
+    col1.write("")
+    col1.image(image, use_column_width=True)
+
+    # Ritesh Singh Suhag -
+    col3.write("## Cristhian Roman Vicharra")
+
+    # About section -
+    col3.write("""
+               Research Area: Machine learning, quantum computing and molecular modelling.
+
+               * **Department:** Electrical and Computer Engineering
+               * **Degree:** PhD Student 
+               * **Email:** cristhianroman@tamu.edu
+               * **LinkedIn:** [www.linkedin.com/in/cristhianromanv/](https://www.linkedin.com/in/cristhianromanv/)
+               """)
+    st.write("")
+
 
     # Dividing screen into 2 parts -
     col1, col2, col3 = st.columns((0.75,0.1,2))
@@ -792,31 +817,6 @@ def authors():
                * **Email:** hailiang@tamu.edu
                * **LinkedIn:** [linkedin.com/in/hailiang-hu-282b90ba/](https://www.linkedin.com/in/hailiang-hu-282b90ba/)
                * **Website:** [hailiangh.github.io/](https://hailiangh.github.io/)
-               """)
-    st.write("")
-
-    # Dividing screen into 2 parts -
-    col1, col2, col3 = st.columns((0.75,0.1,2))
-
-    # Setting the image -
-    image = Image.open('Images/cristhian.jpg')
-
-    # Setting the image width -
-    col1.write("")
-    col1.write("")
-    col1.image(image, use_column_width=True)
-
-    # Ritesh Singh Suhag -
-    col3.write("## Cristhian Roman Vicharra")
-
-    # About section -
-    col3.write("""
-               Research Area: Machine learning, quantum computing and molecular modelling.
-
-               * **Department:** Electrical and Computer Engineering
-               * **Degree:** PhD Student 
-               * **Email:** cristhianroman@tamu.edu
-               * **LinkedIn:** [www.linkedin.com/in/cristhianromanv/](https://www.linkedin.com/in/cristhianromanv/)
                """)
     st.write("")
 
@@ -866,7 +866,7 @@ def authors():
                * **Degree:** PhD Student 
                * **Email:** swarnabha7@tamu.edu
                * **LinkedIn:** [linkedin.com/in/swarnabha7/](https://www.linkedin.com/in/swarnabha7/)
-               * **Github:** [github.com/swarnabha13](https://github.com/swarnabha13)
+               * **Website:** [swarnabharoy.com](https://swarnabharoy.com)
                """)
     st.write("")
 
