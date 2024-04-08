@@ -266,6 +266,30 @@ def us_sea_viz():
         get_rt_viz()
     elif (viz == 'Time-series trend seasonally'):
         get_season_viz()
+    elif (viz == 'Time-series clustering'):
+        get_clustering_viz()
+
+def get_clustering_viz():
+    # Description of the images above.
+    st.markdown("""
+                <p style='text-align: justify;'>
+
+                Figure below shows the mean ADT of the time series for each lat-lon coordinate. An ADT mean threshold of 0.25m divides the ocean into 2 areas: a red area with a steady level larger than the blue area in the time-series. Furthermore, the figure below on the right shows the standard deviation for each lat-lon coordinate. In addition, the areas with standard deviation larger than 0.25m indicate variability in the corresponding time-series nevertheless the Savitzky-Golay filter. The area in red is the intersection between Gulf Stream and Labrador ocean currents; thus the variation corresponds to a particular phenomenon.
+                
+                </p>
+                """, unsafe_allow_html=True)
+    st.write("")
+
+    # Set the width of the columns - we use cols 2 and 3 for two side-by-side images
+    col1, col2, col3, col4 = st.columns((0.3, 2.2, 2.2, 0.3))
+
+    with col2:
+        image = Image.open('Images/clustering/heatmap_mean_adt.png')
+        st.image(image, use_column_width = True)
+
+    with col3:
+        image = Image.open('Images/clustering/heatmap_std_adt.png')
+        st.image(image, use_column_width = True)
 
 
 def get_season_viz():
