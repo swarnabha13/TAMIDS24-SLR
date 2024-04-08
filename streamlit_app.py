@@ -917,7 +917,7 @@ navigation_tab = st.sidebar.selectbox('Choose a tab',
                                           'Modeling and Analysis', 
                                           'Sea level Trends around US', 
                                           'Time-series clustering',
-                                          'Impact on Population and Dmographics',
+                                          'Impact on Population and Demographics',
                                           'About the Authors'
                                           ))
 # Displaying pages according to the selection -
@@ -947,7 +947,7 @@ elif navigation_tab == 'Time-series clustering':
     time_series_clusters()
 
 # Sixth page -
-elif navigation_tab == 'Impact on Population and Dmographics':
+elif navigation_tab == 'Impact on Population and Demographics':
     impact_population()
     
 
