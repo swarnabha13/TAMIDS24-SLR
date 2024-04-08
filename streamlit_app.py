@@ -145,14 +145,20 @@ def impact_population():
 
     st.markdown("""
                 <p style='text-align: justify;'>
-                The assessment of U.S. coastal counties underscores the sea level rise threats to populous and economically diverse communities. 
-                Particularly at risk are urbanized coastal zones with greater populations and median incomes, reflecting significant economic activity. 
-                The analysis in Figure 13(a) distinguishes areas with an elevation of 0-10 meters, color-coded in orange, indicating their susceptibility to early flooding. 
-                In Figure 13(b) analysis has been done to predict the low-lying areas in 13(a) which are prone to submerging due to sea level increase. 
-                This highlights their critical risk for swift submersion due to climate-related flooding. Areas in sky blue represent zones of low risk. 
-                In both plots, the areas depicted in blue are currently below sea level, emphasizing the need for immediate protective and adaptive strategies in these high-risk regions.
+                The map in figure below visualizes marshlands and wetlands across the globe at risk of submergence due to rising sea levels, with the intensity of risk indicated by color gradation. 
+                Areas with darker shades suggest a higher likelihood of being submerged, implying these ecosystems are particularly vulnerable. 
+                Such data is critical for environmental planning and highlights the need for conservation efforts in regions where these valuable ecological zones are threatened by climate change.
                 </p>""",unsafe_allow_html = True)
     st.write("")
+
+    # Dividing screen into 3 parts -
+    col1, col2, col3 = st.columns((0.25,1,0.25))
+
+    image = Image.open('Images/Souryendu/Submerge.png')
+
+    #Setting the image width
+    col2.image(image, use_column_width = True)
+
 
 #_______________________US regional Sea level Trend_______________________
 def us_sea_level_trend():
@@ -760,7 +766,7 @@ def global_temperature():
 #------------------ About the Authors -------------------------
 def authors():
     # Setting the title -
-    st.title("About the Authors")
+    st.title("Team Despacito")
     st.write(" ")
 
 
@@ -865,6 +871,25 @@ def authors():
     st.write("")
 
 #* **Github:** [github.com/swarnabha13](https://github.com/swarnabha13)
+
+    st.title('References')
+
+    # Description
+    st.markdown("""
+                <p style='text-align: justify;'>
+                <ul>
+                <li> NASA. (2021). Global Climate Change: Vital Signs of the Planet. Retrieved from https://climate.nasa.gov/vital-signs/global-temperature/
+                <li> NOAA. (2021). Global Climate Report - Annual 2020. Retrieved from https://www.ncdc.noaa.gov/sotc/global/202013
+                <li> IPCC. (2021). Climate Change 2021: The Physical Science Basis. Retrieved from https://www.ipcc.ch/report/ar6/wg1/
+                <li> USGS. (2021). Sea Level Rise and Coastal Flooding Impacts. Retrieved from https://www.usgs.gov/centers/whcmsc/science/sea-level-rise-and-coastal-flooding-impacts
+                <li> EPA. (2021). Climate Change Indicators: Sea Level. Retrieved from https://www.epa.gov/climate-indicators/climate-change-indicators-sea-level
+                <li> NOAA. (2021). Sea Level Trends. Retrieved from https://tidesandcurrents.noaa.gov/sltrends/sltrends.html
+                <li> Whittaker, E.T; Robinson, G (1924). The Calculus Of Observations. Blackie & Son. pp. 291–6. OCLC 1187948. "Graduation Formulae obtained by fitting a Polynomial."
+                <li> F.R.S., Karl Pearson. “LIII. On lines and planes of closest fit to systems of points in space.” Philosophical Magazine Series 1 2 (1901): 559-572.
+                <li> Shi, Xingjian, Zhourong Chen, Hao Wang, D. Y. Yeung, Wai-Kin Wong and Wang-chun Woo. “Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting.” Neural Information Processing Systems (2015).
+                </ul>
+                </p>""",unsafe_allow_html = True)
+    st.write("")
 
 
 
