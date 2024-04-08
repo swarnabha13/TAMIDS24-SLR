@@ -114,6 +114,46 @@ def get_dept_collab_graph(dept_1):
     components.html(source_code_2,height = 500)
 
 
+#_______________________Population and Demographics_______________________
+def impact_population():
+    # Setting the title
+    st.title('Impact of Sea Level Rise on Population and Demographics')
+
+    # Description
+    st.markdown("""
+                <p style='text-align: justify;'>
+                Sea level rise is a critical issue that has far-reaching impacts on human populations and communities around the world. As sea levels continue to rise due to climate change, coastal regions are increasingly vulnerable to flooding, erosion, and other hazards. These impacts are particularly pronounced in low-lying areas and densely populated coastal cities, where millions of people are at risk of displacement and economic disruption.
+                </p>""",unsafe_allow_html = True)
+    st.write("")
+
+    st.markdown("""
+                <p style='text-align: justify;'>
+                Upon examining datasets for U.S. coastal counties, we evaluated household incomes and populations. With rising sea levels potentially submerging these areas, significant economic and demographic impacts are anticipated. The data in the figures below suggest that the East Coast, with its higher median income, would face a cascade of consequences if inundated by seawater.
+                </p>""",unsafe_allow_html = True)
+    st.write("")
+
+    # Set the width of the columns - we use cols 2 and 3 for two side-by-side images
+    col1, col2, col3, col4 = st.columns((0.3, 2.2, 2.2, 0.3))
+
+    with col2:
+        image = Image.open('Images/Souryendu/Total_Population_by_County_Improved.png')
+        st.image(image, use_column_width = True)
+
+    with col3:
+        image = Image.open('Images/Souryendu/Median_Household_Income_by_County_Improved.png')
+        st.image(image, use_column_width = True)
+
+    st.markdown("""
+                <p style='text-align: justify;'>
+                The assessment of U.S. coastal counties underscores the sea level rise threats to populous and economically diverse communities. 
+                Particularly at risk are urbanized coastal zones with greater populations and median incomes, reflecting significant economic activity. 
+                The analysis in Figure 13(a) distinguishes areas with an elevation of 0-10 meters, color-coded in orange, indicating their susceptibility to early flooding. 
+                In Figure 13(b) analysis has been done to predict the low-lying areas in 13(a) which are prone to submerging due to sea level increase. 
+                This highlights their critical risk for swift submersion due to climate-related flooding. Areas in sky blue represent zones of low risk. 
+                In both plots, the areas depicted in blue are currently below sea level, emphasizing the need for immediate protective and adaptive strategies in these high-risk regions.
+                </p>""",unsafe_allow_html = True)
+    st.write("")
+
 #_______________________US regional Sea level Trend_______________________
 def us_sea_level_trend():
     # Setting the title
@@ -852,6 +892,7 @@ navigation_tab = st.sidebar.selectbox('Choose a tab',
                                           'Modeling and Analysis', 
                                           'Sea level Trends around US', 
                                           'Time-series clustering',
+                                          'Impact on Population and Dmographics',
                                           'About the Authors'
                                           ))
 # Displaying pages according to the selection -
@@ -879,6 +920,10 @@ elif navigation_tab == 'Sea level Trends around US':
 # Fifth page -
 elif navigation_tab == 'Time-series clustering':
     time_series_clusters()
+
+# Sixth page -
+elif navigation_tab == 'Impact on Population and Dmographics':
+    impact_population()
     
 
 # About Page -
