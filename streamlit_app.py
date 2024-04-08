@@ -23,6 +23,8 @@ def home_page():
                 </p>
                 """, unsafe_allow_html=True)
 
+    st.info("Please navigate using the select box in the sidebar on the left.")
+    
     # Problem Statement -
     st.write("""
              ## Problem Statement
@@ -104,7 +106,6 @@ def home_page():
 
     # Navigation -
     st.write("")
-    st.info("Please navigate using the select box in the sidebar on the left.")
     
 
 def get_dept_collab_graph(dept_1):
